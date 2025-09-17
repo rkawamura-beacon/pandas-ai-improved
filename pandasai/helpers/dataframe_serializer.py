@@ -22,7 +22,10 @@ class DataframeSerializer:
         """
 
         # Start building the table metadata
-        dataframe_info = f'<table dialect="{dialect}" table_name="{df.schema.name}"'
+        # Add preview note
+        preview_note = "<!-- Note: This is a preview of the DataFrame (showing only the first few rows) -->\n"
+        dataframe_info = preview_note
+        dataframe_info += f'<table dialect="{dialect}" table_name="{df.schema.name}"'
 
         # Add description attribute if available
         if df.schema.description is not None:
